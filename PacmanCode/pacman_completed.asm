@@ -1,14 +1,14 @@
 .data
 
 .text
-main:		# Construir 1∞ Fase
-		addi $a3, $zero, 0 	# Indicador 1∫ Fase
-		jal border 		# Construir Cen·rio
+main:		# Construir 1¬∞ Fase
+		addi $a3, $zero, 0 	# Indicador 1¬∫ Fase
+		jal border 		# Construir Cen√°rio
 		jal collect		# Construir Coletaveis
 		jal ghost 		# Construir NPCs
 		jal pacman		# Construir Pacman
 	
-		# EndereÁos Utilizados para Mover os NPCs
+		# Endere√ßos Utilizados para Mover os NPCs
 		addi $t7, $zero, 14488 	# Fantasma Vermelho
 		addi $t8, $zero, 17148	# Fantasma Rosa
 		addi $t9, $zero, 14684 	# Fantasma Laranja
@@ -16,56 +16,56 @@ main:		# Construir 1∞ Fase
 		addi $s1, $zero, 'a'	# Movimento Inicial FR
 		addi $s2, $zero, 'd'	# Movimento Inicial FL
 		
-		# EnderÁos Utilizados para Mover o PACMAN
-		addi $s3, $zero, 1032	# EndereÁo Inicial do Pacman
+		# Ender√ßos Utilizados para Mover o PACMAN
+		addi $s3, $zero, 1032	# Endere√ßo Inicial do Pacman
 		
-stage1:	# Passando Atuais InformaÁıes do Fantasma Vermelho 
-	add $a2, $zero, $t7 # PosiÁ„o
+stage1:	# Passando Atuais Informa√ß√µes do Fantasma Vermelho 
+	add $a2, $zero, $t7 # Posi√ß√£o
 	add $a3, $zero, $s0 # Lado do Movimento
 	jal movenpc
-	# Recebendo Novas InformaÁıes do Fantasma Vermelho
-	add $t7, $zero, $v0 # Nova PosiÁ„o
+	# Recebendo Novas Informa√ß√µes do Fantasma Vermelho
+	add $t7, $zero, $v0 # Nova Posi√ß√£o
 	add $s0, $zero, $v1 # Novo Lado de Movimento
 		
-	# Passando Atuais InformaÁıes do Fantasma Rosa 
-	add $a2, $zero, $t8 # PosiÁ„o
+	# Passando Atuais Informa√ß√µes do Fantasma Rosa 
+	add $a2, $zero, $t8 # Posi√ß√£o
 	add $a3, $zero, $s1 # Lado do Movimento
 	jal movenpc
-	# Recebendo Novas InformaÁıes do Fantasma Rosa
-	add $t8, $zero, $v0 # Nova PosiÁ„o
+	# Recebendo Novas Informa√ß√µes do Fantasma Rosa
+	add $t8, $zero, $v0 # Nova Posi√ß√£o
 	add $s1, $zero, $v1 # Novo Lado de Movimento
 		
-	# Passando Atuais InformaÁıes do Fantasma Laranja 
-	add $a2, $zero, $t9 # PosiÁ„o
+	# Passando Atuais Informa√ß√µes do Fantasma Laranja 
+	add $a2, $zero, $t9 # Posi√ß√£o
 	add $a3, $zero, $s2 # Lado do Movimento
 	jal movenpc
-	# Recebendo Novas InformaÁıes do Fantasma Laranja
-	add $t9, $zero, $v0 # Nova PosiÁ„o
+	# Recebendo Novas Informa√ß√µes do Fantasma Laranja
+	add $t9, $zero, $v0 # Nova Posi√ß√£o
 	add $s2, $zero, $v1 # Novo Lado de Movimento
 	
-	# MovimentaÁ„o PACMAN
-	lui $s4, 0xffff # EnderÁo de InformaÁıes do Teclado	
-	lw $s5, 4($s4) # Pega InformaÁıes do Teclado
+	# Movimenta√ß√£o PACMAN
+	lui $s4, 0xffff # Ender√ßo de Informa√ß√µes do Teclado	
+	lw $s5, 4($s4) # Pega Informa√ß√µes do Teclado
 	
-	add $a2, $zero, $s3 # PosiÁ„o
+	add $a2, $zero, $s3 # Posi√ß√£o
 	add $a3, $zero, $s5 # Lado do Movimento
 	jal movepacman
-	add $s3, $zero, $v0 # Nova PosiÁ„o
-	add $s7, $s7, $v1 # Quantidade de Colet·veis Pego
+	add $s3, $zero, $v0 # Nova Posi√ß√£o
+	add $s7, $s7, $v1 # Quantidade de Colet√°veis Pego
 	
-	addi $s5, $zero, 7 # Quantidade de Colet·veis na Fase
+	addi $s5, $zero, 7 # Quantidade de Colet√°veis na Fase
 	beq $s7, $s5 nextstage
 	j stage1
 
-nextstage:	# Construir 2∞ Fase
+nextstage:	# Construir 2¬∞ Fase
 		jal clear
-		addi $a3, $zero, 1 	# Indicador 2∫ Fase
-		jal border 		# Construir Cen·rio
+		addi $a3, $zero, 1 	# Indicador 2¬∫ Fase
+		jal border 		# Construir Cen√°rio
 		jal collect		# Construir Coletaveis
 		jal ghost 		# Construir NPCs
 		jal pacman		# Construir Pacman
 	
-		# EndereÁos Utilizados para Mover os NPCs
+		# Endere√ßos Utilizados para Mover os NPCs
 		addi $t7, $zero, 16024 	# Fantasma Vermelho
 		addi $t8, $zero, 18684	# Fantasma Rosa
 		addi $t9, $zero, 16224 	# Fantasma Laranja
@@ -73,99 +73,99 @@ nextstage:	# Construir 2∞ Fase
 		addi $s1, $zero, 'd'	# Movimento Inicial FR
 		addi $s2, $zero, 'a'	# Movimento Inicial FL
 		
-		# EnderÁos Utilizados para Mover o PACMAN
-		addi $s3, $zero, 1032	# EndereÁo Inicial do Pacman
-		addi $s7, $zero, 0 	# RESET - Quantidade de Colet·veis Coletados
+		# Ender√ßos Utilizados para Mover o PACMAN
+		addi $s3, $zero, 1032	# Endere√ßo Inicial do Pacman
+		addi $s7, $zero, 0 	# RESET - Quantidade de Colet√°veis Coletados
 
-stage2:	# Passando Atuais InformaÁıes do Fantasma Vermelho 
-	add $a2, $zero, $t7 # PosiÁ„o
+stage2:	# Passando Atuais Informa√ß√µes do Fantasma Vermelho 
+	add $a2, $zero, $t7 # Posi√ß√£o
 	add $a3, $zero, $s0 # Lado do Movimento
 	jal movenpc
-	# Recebendo Novas InformaÁıes do Fantasma Vermelho
-	add $t7, $zero, $v0 # Nova PosiÁ„o
+	# Recebendo Novas Informa√ß√µes do Fantasma Vermelho
+	add $t7, $zero, $v0 # Nova Posi√ß√£o
 	add $s0, $zero, $v1 # Novo Lado de Movimento
 		
-	# Passando Atuais InformaÁıes do Fantasma Rosa 
-	add $a2, $zero, $t8 # PosiÁ„o
+	# Passando Atuais Informa√ß√µes do Fantasma Rosa 
+	add $a2, $zero, $t8 # Posi√ß√£o
 	add $a3, $zero, $s1 # Lado do Movimento
 	jal movenpc
-	# Recebendo Novas InformaÁıes do Fantasma Rosa
-	add $t8, $zero, $v0 # Nova PosiÁ„o
+	# Recebendo Novas Informa√ß√µes do Fantasma Rosa
+	add $t8, $zero, $v0 # Nova Posi√ß√£o
 	add $s1, $zero, $v1 # Novo Lado de Movimento
 		
-	# Passando Atuais InformaÁıes do Fantasma Laranja 
-	add $a2, $zero, $t9 # PosiÁ„o
+	# Passando Atuais Informa√ß√µes do Fantasma Laranja 
+	add $a2, $zero, $t9 # Posi√ß√£o
 	add $a3, $zero, $s2 # Lado do Movimento
 	jal movenpc
-	# Recebendo Novas InformaÁıes do Fantasma Laranja
-	add $t9, $zero, $v0 # Nova PosiÁ„o
+	# Recebendo Novas Informa√ß√µes do Fantasma Laranja
+	add $t9, $zero, $v0 # Nova Posi√ß√£o
 	add $s2, $zero, $v1 # Novo Lado de Movimento
 	
-	# MovimentaÁ„o PACMAN
-	lui $s4, 0xffff # EnderÁo de InformaÁıes do Teclado	
-	lw $s5, 4($s4) # Pega InformaÁıes do Teclado
+	# Movimenta√ß√£o PACMAN
+	lui $s4, 0xffff # Ender√ßo de Informa√ß√µes do Teclado	
+	lw $s5, 4($s4) # Pega Informa√ß√µes do Teclado
 	
-	add $a2, $zero, $s3 # PosiÁ„o
+	add $a2, $zero, $s3 # Posi√ß√£o
 	add $a3, $zero, $s5 # Lado do Movimento
 	jal movepacman
-	add $s3, $zero, $v0 # Nova PosiÁ„o
-	add $s7, $s7, $v1 # Quantidade de Colet·veis Pego
+	add $s3, $zero, $v0 # Nova Posi√ß√£o
+	add $s7, $s7, $v1 # Quantidade de Colet√°veis Pego
 	
-	addi $s5, $zero, 7 # Quantidade de Colet·veis na Fase
+	addi $s5, $zero, 7 # Quantidade de Colet√°veis na Fase
 	bne $s7, $s5 stage2
 
 end:	jal youwin
 
 #====================================================================
-# FunÁ„o - Construtor de Cen·rio
+# Fun√ß√£o - Construtor de Cen√°rio
 # Entradas: $a3
 # Saidas: ---
 # Registradores Sujos: $sp, $t0, $1, $t2, $t3, $t4, $t5
-# RÙtulos: border, top_bottom, left_right, Scen1, 
+# R√¥tulos: border, top_bottom, left_right, Scen1, 
 # Scen1Linep1 - p10, Scen2, Scen2Line1p1 - p2, 
 # Scen2Line2p1 - p2, Scen2Line3p1 - p2, Scen2Line4p1 - p3,
 # Scen2Line5p1 - p2, Scen2Line6p1 - p2, Scen2Line7p1 - p2,
 # ScenColumn1 - 2 
 
-#CriaÁ„o da Borda do CÈnario!
-border:		sw $ra, 0($sp) #Guarda o endereÁo de volta da FunÁ„o
+#Cria√ß√£o da Borda do C√©nario!
+border:		sw $ra, 0($sp) #Guarda o endere√ßo de volta da Fun√ß√£o
 		addi $sp, $sp, -4
 		lui $t0, 0x1001
 		ori $t1, 0x0000ff #COR - AZUL
-		addi $t2, $zero, 128 #⁄ltima Unidade Gr·fica(Linha)
+		addi $t2, $zero, 128 #√öltima Unidade Gr√°fica(Linha)
 
-# CriaÁ„o da Borda Superior e Inferior!	
-top_bottom:	sw $t1, 0($t0) #1∫ Linha 
-		sw $t1, 512($t0) #2∫ Linha
+# Cria√ß√£o da Borda Superior e Inferior!	
+top_bottom:	sw $t1, 0($t0) #1¬∫ Linha 
+		sw $t1, 512($t0) #2¬∫ Linha
 		sw $t1, 31744($t0) #Penultima Linha
-		sw $t1, 32256($t0) #⁄ltima Linha
-		addi $t0, $t0, 4 #Proxima Unidade Gr·fica da Linha
+		sw $t1, 32256($t0) #√öltima Linha
+		addi $t0, $t0, 4 #Proxima Unidade Gr√°fica da Linha
 		addi $t2, $t2, -1
 		bne $t2, $zero top_bottom
 		lui $t0, 0x1001 #RESET
-		addi $t2, $zero, 64 #⁄ltima Unidade Gr·fica(Coluna)  
+		addi $t2, $zero, 64 #√öltima Unidade Gr√°fica(Coluna)  
 
-left_right:	sw $t1, 0($t0) #1∞ Coluna
-		sw $t1, 4($t0) #2∫ Coluna
+left_right:	sw $t1, 0($t0) #1¬∞ Coluna
+		sw $t1, 4($t0) #2¬∫ Coluna
 		sw $t1, 504($t0) #Penultima Coluna
-		sw $t1, 508($t0) #⁄ltima Coluna
-		addi $t0, $t0, 512 #PrÛxima Unidade Gr·fica(Coluna)
+		sw $t1, 508($t0) #√öltima Coluna
+		addi $t0, $t0, 512 #Pr√≥xima Unidade Gr√°fica(Coluna)
 		addi $t2, $t2, -1
 		bne $t2, $zero left_right
 		lui $t0, 0x1001 #RESET
-		addi $t0, $t0, 2580 #EndereÁo do Inicio dos Cen·rios
+		addi $t0, $t0, 2580 #Endere√ßo do Inicio dos Cen√°rios
 		beq $a3, $zero Scen1 #Entrada = 0 - Fase 1
 		j Scen2 #Entrada = 1 - Fase 2
 
-# CriaÁ„o do Cen·rio
-# $t0 -> EndereÁos do Cen·rio
-# $t1 -> Cor do Cen·rio(AZUL)
-# $t2 -> Quantidade de Unidades Gr·ficas dos PedaÁos da Linhas/Colunas
-# $t3 -> Quantidade de PedaÁos de Linha/Coluna
-# $t4 -> Largura da Linha/Coluna(Unidades Gr·ficas)
-# $t5 -> RepetiÁ„o do Padr„o da Linha/Coluna
+# Cria√ß√£o do Cen√°rio
+# $t0 -> Endere√ßos do Cen√°rio
+# $t1 -> Cor do Cen√°rio(AZUL)
+# $t2 -> Quantidade de Unidades Gr√°ficas dos Peda√ßos da Linhas/Colunas
+# $t3 -> Quantidade de Peda√ßos de Linha/Coluna
+# $t4 -> Largura da Linha/Coluna(Unidades Gr√°ficas)
+# $t5 -> Repeti√ß√£o do Padr√£o da Linha/Coluna
 
-Scen1:		#InformaÁıes Quatro Primeiras Linhas
+Scen1:		#Informa√ß√µes Quatro Primeiras Linhas
 		addi $t2, $zero, 21
 		addi $t3, $zero, 2
 		addi $t4, $zero, 2
@@ -202,12 +202,12 @@ Scen1Linep2:	sw $t1, 0($t0)
 		addi $t4, $zero, 2
 		addi $t5, $t5, -1
 		bne $t5, $zero Scen1Linep1
-		#InformaÁıes Quinta Linha
+		#Informa√ß√µes Quinta Linha
 		addi $t2, $zero, 21
 		addi $t3, $zero, 2
 		addi $t4, $zero, 3
 
-#Quinta Linha (3 Unidades Gr·ficas de Largura)
+#Quinta Linha (3 Unidades Gr√°ficas de Largura)
 Scen1Linep3:	sw $t1, 0($t0)
 		addi $t0, $t0, 4
 		addi $t2, $t2, -1
@@ -232,7 +232,7 @@ Scen1Linep4:	sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero Scen1Linep3
-		#InformaÁıes Sexta Linha
+		#Informa√ß√µes Sexta Linha
 		addi $t0, $t0, 1536
 		addi $t2, $zero, 21
 		addi $t3, $zero, 2
@@ -263,13 +263,13 @@ Scen1Linep6:	sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero Scen1Linep5
-		#InformaÁıes Setima Linha
+		#Informa√ß√µes Setima Linha
 		addi $t0, $t0, 1536
 		addi $t2, $zero, 21
 		addi $t3, $zero, 2
 		addi $t4, $zero, 3
 
-#Setima Linha (3 Unidades Gr·ficas de Largura)
+#Setima Linha (3 Unidades Gr√°ficas de Largura)
 Scen1Linep7:	sw $t1, 0($t0)
 		addi $t0, $t0, 4
 		addi $t2, $t2, -1
@@ -294,14 +294,14 @@ Scen1Linep8:	sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero Scen1Linep7
-		#InformaÁıes Quatro ⁄ltimas Linhas
+		#Informa√ß√µes Quatro √öltimas Linhas
 		addi $t0, $t0, 1536
 		addi $t2, $zero, 21
 		addi $t3, $zero, 2
 		addi $t4, $zero, 2
 		addi $t5, $zero, 4
 
-#Quatro ⁄ltimas Linhas
+#Quatro √öltimas Linhas
 Scen1Linep9:	sw $t1, 0($t0)
 		addi $t0, $t0, 4
 		addi $t2, $t2, -1
@@ -334,7 +334,7 @@ Scen1Linep10:	sw $t1, 0($t0)
 		bne $t5, $zero Scen1Linep9
 		j endScenConst
 
-Scen2:		#InformaÁıes Primeira Linha
+Scen2:		#Informa√ß√µes Primeira Linha
 		addi $t2, $zero, 46
 		addi $t3, $zero, 2
 		addi $t4, $zero, 2
@@ -359,7 +359,7 @@ Scen2Line1p2:	sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero Scen2Line1p1
-		#InformaÁıes Segunda Linha
+		#Informa√ß√µes Segunda Linha
 		addi $t0, $t0, 1536
 		addi $t2, $zero, 54
 		addi $t3, $zero, 2
@@ -385,7 +385,7 @@ Scen2Line2p2:	sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero Scen2Line2p1
-		#InformaÁıes Terceira Linha
+		#Informa√ß√µes Terceira Linha
 		addi $t0, $t0, 1524
 		addi $t2, $zero, 57
 		addi $t3, $zero, 2
@@ -410,7 +410,7 @@ Scen2Line3p2:	sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero Scen2Line3p1
-		#InformaÁıes Quarta Linha (Bloco de Linhas)
+		#Informa√ß√µes Quarta Linha (Bloco de Linhas)
 		addi $t0, $t0, 1548
 		addi $t2, $zero, 20
 		addi $t3, $zero, 4
@@ -438,14 +438,14 @@ Scen2Line4p2:	sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero Scen2Line4p1
 
-#RepetiÁ„o do Padr„o da Quarta Linha 4x	
+#Repeti√ß√£o do Padr√£o da Quarta Linha 4x	
 Scen2Line4p3:	addi $t0, $t0, 1536
 		addi $t2, $zero, 20
 		addi $t3, $zero, 4
 		addi $t4, $zero, 2
 		addi $t5, $t5, -1
 		bne $t5, $zero Scen2Line4p1
-		#InformaÁıes Quinta Linha
+		#Informa√ß√µes Quinta Linha
 		addi $t0, $t0, -12
 		addi $t2, $zero, 57
 		addi $t3, $zero, 2
@@ -469,7 +469,7 @@ Scen2Line5p2:	sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero, Scen2Line5p1
-		#InformaÁıes Sexta Linha
+		#Informa√ß√µes Sexta Linha
 		addi $t0, $t0, 1548
 		addi $t2, $zero, 54
 		addi $t3, $zero, 2
@@ -495,7 +495,7 @@ Scen2Line6p2:	sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero, Scen2Line6p1
-		#InformaÁıes Setima Linha
+		#Informa√ß√µes Setima Linha
 		addi $t0, $t0, 1536
 		addi $t2, $zero, 46
 		addi $t3, $zero, 2
@@ -521,7 +521,7 @@ Scen2Line7p2:	sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero, Scen2Line7p1
-		#InformaÁıes Primeira Coluna(TOP)
+		#Informa√ß√µes Primeira Coluna(TOP)
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 1272
 		addi $t2, $zero, 4
@@ -536,7 +536,7 @@ Scen2Column1:	sw $t1, 0($t0)
 		addi $t2, $zero, 4
 		addi $t3, $t3, -1
 		bne $t3, $zero Scen2Column1
-		#InformaÁıes Segunda Coluna(BOTTOM)
+		#Informa√ß√µes Segunda Coluna(BOTTOM)
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 27896
 		addi $t2, $zero, 4
@@ -552,24 +552,24 @@ Scen2Column2:	sw $t1, 0($t0)
 		addi $t3, $t3, -1
 		bne $t3, $zero Scen2Column2		
 		
-endScenConst:	addi $sp, $sp, +4 #Pega o endereÁo de volta da FunÁ„o
+endScenConst:	addi $sp, $sp, +4 #Pega o endere√ßo de volta da Fun√ß√£o
 		lw $ra, 0($sp)
 		jr $ra
 
 #--------------------------------------------------------------------
-# FunÁ„o - Construtor do Personagem(PACMAN)
+# Fun√ß√£o - Construtor do Personagem(PACMAN)
 # Entradas: ---
 # Saidas: ---
 # Registradores Sujos: $sp, $t0, $t1, $t2
-# RÙtulos: pacman, pacman_, pacman_2, pacman_3 endConstPAC
+# R√¥tulos: pacman, pacman_, pacman_2, pacman_3 endConstPAC
 
-pacman:		sw $ra, 0($sp) #Guarda o endereÁo de volta da FunÁ„o
+pacman:		sw $ra, 0($sp) #Guarda o endere√ßo de volta da Fun√ß√£o
 		addi $sp, $sp, -4
 		lui $t0, 0x1001
-		addi $t0, $t0, 1032 #PosiÁ„o Inicial do Pacman
+		addi $t0, $t0, 1032 #Posi√ß√£o Inicial do Pacman
 		addi $t1, $zero, 0 #RESET
 		ori $t1, 0xffff00 #COR - AMARELA
-		addi $t2, $zero, 3 #Quantidade de Unidades Gr·ficas por Linha
+		addi $t2, $zero, 3 #Quantidade de Unidades Gr√°ficas por Linha
 		
 pacman_:	sw $t1, 0($t0)
 		addi $t0, $t0, 4
@@ -590,38 +590,38 @@ pacman_3:	sw $t1, 0($t0)
 		addi $t2, $t2, -1
 		bne $t2, $zero pacman_3
 
-endConstPAC: 	addi $sp, $sp, +4 #Pega o endereÁo de volta da FunÁ„o
+endConstPAC: 	addi $sp, $sp, +4 #Pega o endere√ßo de volta da Fun√ß√£o
 		lw $ra, 0($sp)
 		jr $ra
 
 #--------------------------------------------------------------------
-# FunÁ„o - Construtor dos NPC(Fantasmas)
+# Fun√ß√£o - Construtor dos NPC(Fantasmas)
 # Entradas: $a3
 # Saidas: ---
 # Registradores Sujos: $sp, $t0, $t1, $t2
-# RÙtulos: ghost, S1Ghost, S1RedGhostp1 - p2, 
+# R√¥tulos: ghost, S1Ghost, S1RedGhostp1 - p2, 
 # S1PinkGhostp1 - p2, S1OrangeGhostp1 - p2, S2Ghost, 
 # S2RedGhostp1 - p2, S2PinkGhostp1 - p2, S2OrangeGhostp1 - p2, 
 # endConstGhost
 
-ghost:		sw $ra, 0($sp) #Guarda o endereÁo de volta da FunÁ„o
+ghost:		sw $ra, 0($sp) #Guarda o endere√ßo de volta da Fun√ß√£o
 		addi $sp, $sp, -4
 		lui $t0, 0x1001 #RESET
 		ori $t1, 0xffffff #COR - BRANCA
 		beq $a3, $zero S1Ghost
 		j S2Ghost
-#CriaÁ„o dos Fantasma do Primeiro CÈnario
-S1Ghost:	addi $t0, $t0, 14488 #PosiÁ„o do Fantasma Vermelho
+#Cria√ß√£o dos Fantasma do Primeiro C√©nario
+S1Ghost:	addi $t0, $t0, 14488 #Posi√ß√£o do Fantasma Vermelho
 
 S1RedGhostp1:	#Primeira Linha do Sprit do Fantasma Vermelho
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
 		addi $t0, $t0, 4
 		addi $t1, $zero, 0
 		ori $t1, 0xff0000 #COR - VERMELHA
-		sw $t1, 0($t0) #Segunda Unidade Gr·fica
+		sw $t1, 0($t0) #Segunda Unidade Gr√°fica
 		addi $t0, $t0, 4
 		ori $t1, 0xffffff #COR - BRANCA
-		sw $t1, 0 ($t0) #Terceira Unidade Gr·fica
+		sw $t1, 0 ($t0) #Terceira Unidade Gr√°fica
 		addi $t0, $t0, 504
 		addi $t1, $zero, 0
 		ori $t1, 0xff0000 #COR - VERMELHA
@@ -633,23 +633,23 @@ S1RedGhostp2:	#Segunda Linha do Sprit do Fantasma Vermelho
 		addi $t2, $t2, -1
 		bne $t2, $zero S1RedGhostp2
 		addi $t0, $t0, 500
-		#⁄ltima Linha do Sprit do Fantasma Vermelho
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
-		addi $t0, $t0, 8 #Pular a Segunda Unidade Gr·fica
-		sw $t1, 0($t0) # Terceira Unidade Gr·fica
+		#√öltima Linha do Sprit do Fantasma Vermelho
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
+		addi $t0, $t0, 8 #Pular a Segunda Unidade Gr√°fica
+		sw $t1, 0($t0) # Terceira Unidade Gr√°fica
 		lui $t0, 0x1001 #RESET
-		addi $t0, $t0, 17148 #PosiÁ„o do Fantasma Rosa
+		addi $t0, $t0, 17148 #Posi√ß√£o do Fantasma Rosa
 		ori $t1, 0xffffff #COR - BRANCA
 		
 S1PinkGhostp1:	#Primeira Linha do Sprit do Fantasma Rosa
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
 		addi $t0, $t0, 4
 		addi $t1, $zero, 0
 		ori $t1, 0xff007f #COR - ROSA
-		sw $t1, 0($t0) #Segunda Unidade Gr·fica
+		sw $t1, 0($t0) #Segunda Unidade Gr√°fica
 		addi $t0, $t0, 4
 		ori $t1, 0xffffff #COR - BRANCA
-		sw $t1, 0 ($t0) #Terceira Unidade Gr·fica
+		sw $t1, 0 ($t0) #Terceira Unidade Gr√°fica
 		addi $t0, $t0, 504
 		addi $t1, $zero, 0
 		ori $t1, 0xff007f #COR - ROSA
@@ -661,23 +661,23 @@ S1PinkGhostp2:	#Segunda Linha do Sprit do Fantasma Rosa
 		addi $t2, $t2, -1
 		bne $t2, $zero S1PinkGhostp2
 		addi $t0, $t0, 500
-		#⁄ltima Linha do Sprit do Fantasma Rosa
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
-		addi $t0, $t0, 8 #Pular a Segunda Unidade Gr·fica
-		sw $t1,0 ($t0) #Segunda Unidade Gr·fica
+		#√öltima Linha do Sprit do Fantasma Rosa
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
+		addi $t0, $t0, 8 #Pular a Segunda Unidade Gr√°fica
+		sw $t1,0 ($t0) #Segunda Unidade Gr√°fica
 		lui $t0, 0x1001 #RESET
-		addi $t0, $t0, 14684 #PosiÁ„o do Fantasma Laranja
+		addi $t0, $t0, 14684 #Posi√ß√£o do Fantasma Laranja
 		ori $t1, 0xffffff #COR - BRANCA
 		
 S1OrangeGhostp1:#Primeira Linha do Sprit do Fantasma Laranja
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
 		addi $t0, $t0, 4
 		addi $t1, $zero, 0
 		ori $t1, 0xffa500 #COR - LARANJA
-		sw $t1, 0($t0) #Segunda Unidade Gr·fica
+		sw $t1, 0($t0) #Segunda Unidade Gr√°fica
 		addi $t0, $t0, 4
 		ori $t1, 0xffffff #COR - BRANCA
-		sw $t1, 0 ($t0) #Terceira Unidade Gr·fica
+		sw $t1, 0 ($t0) #Terceira Unidade Gr√°fica
 		addi $t0, $t0, 504
 		addi $t1, $zero, 0
 		ori $t1, 0xffa500 #COR - LARANJA
@@ -689,23 +689,23 @@ S1OrangeGhostp2:#Segunda Linha do Sprit do Fantasma Laranja
 		addi $t2, $t2, -1
 		bne $t2, $zero S1OrangeGhostp2
 		addi $t0, $t0, 500
-		#⁄ltima Linha do Sprit do Fantasma Laranja
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
-		addi $t0, $t0, 8 #Pula a Segunda Unidade Gr·fica
-		sw $t1,0 ($t0) #Terceira Unidade Gr·fica
+		#√öltima Linha do Sprit do Fantasma Laranja
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
+		addi $t0, $t0, 8 #Pula a Segunda Unidade Gr√°fica
+		sw $t1,0 ($t0) #Terceira Unidade Gr√°fica
 		j endConstGhost
-#CriaÁ„o dos Fantasma do Segundo CÈnario
-S2Ghost:	addi $t0, $t0, 16024 #PosiÁ„o do Fantasma Vermelho
+#Cria√ß√£o dos Fantasma do Segundo C√©nario
+S2Ghost:	addi $t0, $t0, 16024 #Posi√ß√£o do Fantasma Vermelho
 		
 S2RedGhostp1:	#Primeira Linha do Sprit do Fantasma Vermelho
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
 		addi $t0, $t0, 4
 		addi $t1, $zero, 0
 		ori $t1, 0xff0000 #COR - VERMELHA
-		sw $t1, 0($t0) #Segunda Unidade Gr·fica
+		sw $t1, 0($t0) #Segunda Unidade Gr√°fica
 		addi $t0, $t0, 4
 		ori $t1, 0xffffff #COR - BRANCA
-		sw $t1, 0 ($t0) #Terceira Unidade Gr·fica
+		sw $t1, 0 ($t0) #Terceira Unidade Gr√°fica
 		addi $t0, $t0, 504
 		addi $t1, $zero, 0
 		ori $t1, 0xff0000 #COR - VERMELHA
@@ -717,23 +717,23 @@ S2RedGhostp2:	#Segunda Linha do Sprit do Fantasma Vermelho
 		addi $t2, $t2, -1
 		bne $t2, $zero S2RedGhostp2
 		addi $t0, $t0, 500
-		#⁄ltima Linha do Sprit do Fantasma Vermelho
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
-		addi $t0, $t0, 8 #Pular a Segunda Unidade Gr·fica
-		sw $t1, 0($t0) # Terceira Unidade Gr·fica
+		#√öltima Linha do Sprit do Fantasma Vermelho
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
+		addi $t0, $t0, 8 #Pular a Segunda Unidade Gr√°fica
+		sw $t1, 0($t0) # Terceira Unidade Gr√°fica
 		lui $t0, 0x1001 #RESET
-		addi $t0, $t0, 18684 #PosiÁ„o do Fantasma Rosa
+		addi $t0, $t0, 18684 #Posi√ß√£o do Fantasma Rosa
 		ori $t1, 0xffffff #COR - BRANCA
 		
 S2PinkGhostp1:	#Primeira Linha do Sprit do Fantasma Rosa
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
 		addi $t0, $t0, 4
 		addi $t1, $zero, 0
 		ori $t1, 0xff007f #COR - ROSA
-		sw $t1, 0($t0) #Segunda Unidade Gr·fica
+		sw $t1, 0($t0) #Segunda Unidade Gr√°fica
 		addi $t0, $t0, 4
 		ori $t1, 0xffffff #COR - BRANCA
-		sw $t1, 0 ($t0) #Terceira Unidade Gr·fica
+		sw $t1, 0 ($t0) #Terceira Unidade Gr√°fica
 		addi $t0, $t0, 504
 		addi $t1, $zero, 0
 		ori $t1, 0xff007f #COR - ROSA
@@ -745,23 +745,23 @@ S2PinkGhostp2:	#Segunda Linha do Sprit do Fantasma Rosa
 		addi $t2, $t2, -1
 		bne $t2, $zero S2PinkGhostp2
 		addi $t0, $t0, 500
-		#⁄ltima Linha do Sprit do Fantasma Rosa
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
-		addi $t0, $t0, 8 #Pular a Segunda Unidade Gr·fica
-		sw $t1,0 ($t0) #Segunda Unidade Gr·fica
+		#√öltima Linha do Sprit do Fantasma Rosa
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
+		addi $t0, $t0, 8 #Pular a Segunda Unidade Gr√°fica
+		sw $t1,0 ($t0) #Segunda Unidade Gr√°fica
 		lui $t0, 0x1001 #RESET
-		addi $t0, $t0, 16224 #PosiÁ„o do Fantasma Laranja
+		addi $t0, $t0, 16224 #Posi√ß√£o do Fantasma Laranja
 		ori $t1, 0xffffff #COR - BRANCA
 		
 S2OrangeGhostp1:#Primeira Linha do Sprit do Fantasma Laranja
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
 		addi $t0, $t0, 4
 		addi $t1, $zero, 0
 		ori $t1, 0xffa500 #COR - LARANJA
-		sw $t1, 0($t0) #Segunda Unidade Gr·fica
+		sw $t1, 0($t0) #Segunda Unidade Gr√°fica
 		addi $t0, $t0, 4
 		ori $t1, 0xffffff #COR - BRANCA
-		sw $t1, 0 ($t0) #Terceira Unidade Gr·fica
+		sw $t1, 0 ($t0) #Terceira Unidade Gr√°fica
 		addi $t0, $t0, 504
 		addi $t1, $zero, 0
 		ori $t1, 0xffa500 #COR - LARANJA
@@ -773,99 +773,99 @@ S2OrangeGhostp2:#Segunda Linha do Sprit do Fantasma Laranja
 		addi $t2, $t2, -1
 		bne $t2, $zero S2OrangeGhostp2
 		addi $t0, $t0, 500
-		#⁄ltima Linha do Sprit do Fantasma Laranja
-		sw $t1, 0($t0) #Primeira Unidade Gr·fica
-		addi $t0, $t0, 8 #Pula a Segunda Unidade Gr·fica
-		sw $t1,0 ($t0) #Terceira Unidade Gr·fica
+		#√öltima Linha do Sprit do Fantasma Laranja
+		sw $t1, 0($t0) #Primeira Unidade Gr√°fica
+		addi $t0, $t0, 8 #Pula a Segunda Unidade Gr√°fica
+		sw $t1,0 ($t0) #Terceira Unidade Gr√°fica
 
-endConstGhost:	addi $sp, $sp, +4 #Pega o endereÁo de volta da FunÁ„o
+endConstGhost:	addi $sp, $sp, +4 #Pega o endere√ßo de volta da Fun√ß√£o
 		lw $ra, 0($sp)
 		jr $ra
 
 #--------------------------------------------------------------------
-# FunÁ„o - Construir Colet·veis
+# Fun√ß√£o - Construir Colet√°veis
 # Entradas: $a3
 # Saidas: ---
 # Registradores Sujos: $sp, $t0, $t1
-# RÙtulos: collect, S1Collect, S2Collect, endConstCollect
+# R√¥tulos: collect, S1Collect, S2Collect, endConstCollect
 
-collect:	sw $ra, 0($sp) #Guarda o endereÁo de volta da FunÁ„o
+collect:	sw $ra, 0($sp) #Guarda o endere√ßo de volta da Fun√ß√£o
 		addi $sp, $sp, -4
 		addi $t1, $zero, 0 #RESET
 		ori $t1, 0xf5f5f5 # COR - BRANCO ACINZENTADO(OFF-WHITE)
 		beq $a3, $zero S1Collect
 		j S2Collect
 
-S1Collect:	#1∞ Colet·vel
+S1Collect:	#1¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 4184
 		sw $t1, 0($t0)
-		#2∞ Colet·vel
+		#2¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 4516
 		sw $t1, 0($t0)
-		#3∞ Colet·vel
+		#3¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 11932
 		sw $t1, 0($t0)
-		#4∞ Colet·vel
+		#4¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 15104
 		sw $t1, 0($t0)
-		#5∞ Colet·vel
+		#5¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 20832
 		sw $t1, 0($t0)
-		#6∞ Colet·vel
+		#6¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 28248
 		sw $t1, 0($t0)
-		#7∞ Colet·vel
+		#7¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 28580
 		sw $t1, 0($t0)
 		j endConstCollect
 		
-S2Collect:	#1∞ Colet·vel
+S2Collect:	#1¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 4276
 		sw $t1, 0($t0)
-		#2∞ Colet·vel
+		#2¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 4424
 		sw $t1, 0($t0)
-		#3∞ Colet·vel
+		#3¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 16568
 		sw $t1, 0($t0)
-		#4∞ Colet·vel
+		#4¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 16640
 		sw $t1, 0($t0)
-		#5∞ Colet·vel
+		#5¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 16708
 		sw $t1, 0($t0)
-		#6∞ Colet·vel
+		#6¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 28340
 		sw $t1, 0($t0)
-		#7∞ Colet·vel
+		#7¬∞ Colet√°vel
 		lui $t0, 0x1001 #RESET
 		addi $t0, $t0, 28488
 		sw $t1, 0($t0)
 		
-endConstCollect:addi $sp, $sp, +4 #Pega o endereÁo de volta da FunÁ„o
+endConstCollect:addi $sp, $sp, +4 #Pega o endere√ßo de volta da Fun√ß√£o
 		lw $ra, 0($sp)
 		jr $ra
 
 #--------------------------------------------------------------------
-# FunÁ„o - Mover os NPCs(Fantasmas)
+# Fun√ß√£o - Mover os NPCs(Fantasmas)
 # Entradas: $a2, $a3
 # Saidas: $v0, $v1
 # Registradores Sujos: $sp, $t0, $t1, $t2, $t3, $t4, $t5, $s1, 
 # $s2, $s3, $s4, $s5, $s6
-# RÙtulos: movenpc - _ , movetop - _, movebottom - _, 
+# R√¥tulos: movenpc - _ , movetop - _, movebottom - _, 
 # moveleft - _, moveright - _, collide - _, finalmove, 
 # ScenCollide1, CollideBottom, CollideLeft, CollideRight, 
 # NPC_Collect, PacmanCollide, LeftRight, RightV, Choise - 2,
@@ -873,23 +873,23 @@ endConstCollect:addi $sp, $sp, +4 #Pega o endereÁo de volta da FunÁ„o
 # TopChoise, BottomChoise, TOP, BOTTOM, LEFT, RIGHT, endmove
 
 movenpc:	#Guardando na Memoria para Utilizar
-		sw $ra, 0($sp) #EndereÁo de Volta
-		sw $s3, -4($sp) #Ser· Usado para Verificar a DireÁ„o do Movimento
-		sw $s4, -8($sp) #Ser· Usado para Verificar se È a Primeira ou Segunda VerificaÁ„o de Colis„o
-		sw $s5, -12($sp) #Ser· Usado para Verificar o Lado de DireÁ„o do NPC
-		sw $s6, -16($sp) #Ser· Usado para Verificar a Passagem pela VerificaÁ„o de IntersecÁ„o
+		sw $ra, 0($sp) #Endere√ßo de Volta
+		sw $s3, -4($sp) #Ser√° Usado para Verificar a Dire√ß√£o do Movimento
+		sw $s4, -8($sp) #Ser√° Usado para Verificar se √© a Primeira ou Segunda Verifica√ß√£o de Colis√£o
+		sw $s5, -12($sp) #Ser√° Usado para Verificar o Lado de Dire√ß√£o do NPC
+		sw $s6, -16($sp) #Ser√° Usado para Verificar a Passagem pela Verifica√ß√£o de Intersec√ß√£o
 		addi $sp, $sp, -20
 		add $v0, $zero, $a2
 		add $v1, $zero, $a3
 		addi $s4, $zero, 0 #RESET
 		j collide
 
-movenpc_:	#Guarda EndereÁo de PosiÁ„o do NPC
+movenpc_:	#Guarda Endere√ßo de Posi√ß√£o do NPC
 		add $a3, $zero, $v1
-		addi $s4, $zero, 1 #Passou pela Primeira VerificaÁ„o de Colis„o
+		addi $s4, $zero, 1 #Passou pela Primeira Verifica√ß√£o de Colis√£o
 		lui $t0, 0x1001 #RESET
-		add $t0, $t0, $a2 #PosiÁ„o do NPC
-		#VerificaÁ„o da DireÁ„o de Movimento do NPC
+		add $t0, $t0, $a2 #Posi√ß√£o do NPC
+		#Verifica√ß√£o da Dire√ß√£o de Movimento do NPC
 		addi $s3, $zero, 'w'
 		beq $a3, $s3 movetop
 		addi $s3, $zero, 's'
@@ -898,18 +898,18 @@ movenpc_:	#Guarda EndereÁo de PosiÁ„o do NPC
 		beq $a3, $s3 moveleft
 		j moveright
 
-movetop:	#MovimentaÁ„o para Cima
+movetop:	#Movimenta√ß√£o para Cima
 		addi $t2, $zero, 3
 		addi $t3, $zero, 3
 		jal movetime1
 		
-movetop_:	lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG) 
-		addi $t0, $t0, -512 #PosiÁ„o de Movimento da UG
-		sw $t1, 0($t0) #Mover a Unidade Gr·fica
-		addi $t0, $t0, 516 #PrÛximo Salvamento da UG
+movetop_:	lw $t1, 0($t0) #Salvar Unidade Gr√°fica(UG) 
+		addi $t0, $t0, -512 #Posi√ß√£o de Movimento da UG
+		sw $t1, 0($t0) #Mover a Unidade Gr√°fica
+		addi $t0, $t0, 516 #Pr√≥ximo Salvamento da UG
 		addi $t2, $t2, -1
 		bne $t2, $zero movetop_
-		addi $t0, $t0, 500 #PrÛxima Linha de MovimentaÁ„o
+		addi $t0, $t0, 500 #Pr√≥xima Linha de Movimenta√ß√£o
 		addi $t2, $zero, 3
 		addi $t3, $t3, -1
 		bne $t3, $zero, movetop_
@@ -920,27 +920,27 @@ movetop_:	lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG)
 		sw $t1, 4($t0)
 		sw $t1, 8($t0)
 		addi $t1, $zero, 0 #RESET
-		addi $t0, $t0, -1536 #Voltar para a UG de ReferÍncia Padr„o
-		addi $t0, $t0, -268500992 #RESET + EndereÁo Novo
+		addi $t0, $t0, -1536 #Voltar para a UG de Refer√™ncia Padr√£o
+		addi $t0, $t0, -268500992 #RESET + Endere√ßo Novo
 		add $v0, $zero, $t0
 		addi $v1, $zero, 'w'
 		j collide
 
-movebottom:	#MovimentaÁ„o para Baixo
-		addi $t0, $t0, 1024 #Inverter Unidade Gr·fica de ReferÍncia
-		#Unidade Gr·fica de ReferÍncia Padr„o(Canto Superior Esquerdo)
-		#Unidade Gr·fica de ReferÍncia Invertida(Canto Inferior Esquerdo) 
+movebottom:	#Movimenta√ß√£o para Baixo
+		addi $t0, $t0, 1024 #Inverter Unidade Gr√°fica de Refer√™ncia
+		#Unidade Gr√°fica de Refer√™ncia Padr√£o(Canto Superior Esquerdo)
+		#Unidade Gr√°fica de Refer√™ncia Invertida(Canto Inferior Esquerdo) 
 		addi $t2, $zero, 3
 		addi $t3, $zero, 3
 		jal movetime1
 		
-movebottom_:	lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG) 
-		addi $t0, $t0, 512 #PosiÁ„o de Movimento da UG
-		sw $t1, 0($t0) #Mover a Unidade Gr·fica
-		addi $t0, $t0, -508 #PrÛximo Salvamento da UG
+movebottom_:	lw $t1, 0($t0) #Salvar Unidade Gr√°fica(UG) 
+		addi $t0, $t0, 512 #Posi√ß√£o de Movimento da UG
+		sw $t1, 0($t0) #Mover a Unidade Gr√°fica
+		addi $t0, $t0, -508 #Pr√≥ximo Salvamento da UG
 		addi $t2, $t2, -1
 		bne $t2, $zero movebottom_
-		addi $t0, $t0, -524 #PrÛxima Linha de MovimentaÁ„o
+		addi $t0, $t0, -524 #Pr√≥xima Linha de Movimenta√ß√£o
 		addi $t2, $zero, 3
 		addi $t3, $t3, -1
 		bne $t3, $zero, movebottom_
@@ -951,24 +951,24 @@ movebottom_:	lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG)
 		sw $t1, 4($t0)
 		sw $t1, 8($t0)
 		addi $t1, $zero, 0 #RESET
-		addi $t0, $t0, 512 #Voltar para a UG de ReferÍncia Padr„o
-		addi $t0, $t0, -268500992 #RESET + EndereÁo Novo
+		addi $t0, $t0, 512 #Voltar para a UG de Refer√™ncia Padr√£o
+		addi $t0, $t0, -268500992 #RESET + Endere√ßo Novo
 		add $v0, $zero, $t0
 		addi $v1, $zero, 's'
 		j collide
 
-moveleft:	#MovimentaÁ„o para Esquerda
+moveleft:	#Movimenta√ß√£o para Esquerda
 		addi $t2, $zero, 3
 		addi $t3, $zero, 3
 		jal movetime1
 
-moveleft_:	lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG) 
-		addi $t0, $t0, -4 #PosiÁ„o de Movimento da UG
-		sw $t1, 0($t0) #Mover a Unidade Gr·fica
-		addi $t0, $t0, 8 #PrÛximo Salvamento da UG
+moveleft_:	lw $t1, 0($t0) #Salvar Unidade Gr√°fica(UG) 
+		addi $t0, $t0, -4 #Posi√ß√£o de Movimento da UG
+		sw $t1, 0($t0) #Mover a Unidade Gr√°fica
+		addi $t0, $t0, 8 #Pr√≥ximo Salvamento da UG
 		addi $t2, $t2, -1
 		bne $t2, $zero, moveleft_
-		addi $t0, $t0, 500 #PrÛxima Linha de MovimentaÁ„o
+		addi $t0, $t0, 500 #Pr√≥xima Linha de Movimenta√ß√£o
 		addi $t2, $zero, 3
 		addi $t3, $t3, -1
 		bne $t3, $zero moveleft_
@@ -979,27 +979,27 @@ moveleft_:	lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG)
 		sw $t1, 512($t0)
 		sw $t1, 1024($t0)
 		addi $t1, $zero, 0 #RESET
-		addi $t0, $t0, -12 #Voltar para a UG de ReferÍncia Padr„o
-		addi $t0, $t0, -268500992 #RESET + EndereÁo Novo
+		addi $t0, $t0, -12 #Voltar para a UG de Refer√™ncia Padr√£o
+		addi $t0, $t0, -268500992 #RESET + Endere√ßo Novo
 		add $v0, $zero, $t0
 		addi $v1, $zero, 'a'
 		j collide
 
-moveright:	#MovimentaÁ„o para Direita
-		addi $t0, $t0, 8 #Inverter Unidade Gr·fica de ReferÍncia
-		#Unidade Gr·fica de ReferÍncia Padr„o(Canto Superior Esquerdo)
-		#Unidade Gr·fica de ReferÍncia Invertida(Canto Superior Direito)
+moveright:	#Movimenta√ß√£o para Direita
+		addi $t0, $t0, 8 #Inverter Unidade Gr√°fica de Refer√™ncia
+		#Unidade Gr√°fica de Refer√™ncia Padr√£o(Canto Superior Esquerdo)
+		#Unidade Gr√°fica de Refer√™ncia Invertida(Canto Superior Direito)
 		addi $t2, $zero, 3
 		addi $t3, $zero, 3
 		jal movetime1
 		
-moveright_:	lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG) 
-		addi $t0, $t0, 4 #PosiÁ„o de Movimento da UG
-		sw $t1, 0($t0) #Mover a Unidade Gr·fica
-		addi $t0, $t0, -8 #PrÛximo Salvamento da UG
+moveright_:	lw $t1, 0($t0) #Salvar Unidade Gr√°fica(UG) 
+		addi $t0, $t0, 4 #Posi√ß√£o de Movimento da UG
+		sw $t1, 0($t0) #Mover a Unidade Gr√°fica
+		addi $t0, $t0, -8 #Pr√≥ximo Salvamento da UG
 		addi $t2, $t2, -1
 		bne $t2, $zero moveright_
-		addi $t0, $t0, 524 #PrÛxima Linha de MovimentaÁ„o
+		addi $t0, $t0, 524 #Pr√≥xima Linha de Movimenta√ß√£o
 		addi $t2, $zero, 3
 		addi $t3, $t3, -1
 		bne $t3, $zero moveright_
@@ -1010,42 +1010,42 @@ moveright_:	lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG)
 		sw $t1, 512($t0)
 		sw $t1, 1024($t0)
 		addi $t1, $zero, 0 #RESET
-		addi $t0, $t0, 4 #Voltar para a UG de ReferÍncia Padr„o
-		addi $t0, $t0, -268500992 #RESET + EndereÁo Novo
+		addi $t0, $t0, 4 #Voltar para a UG de Refer√™ncia Padr√£o
+		addi $t0, $t0, -268500992 #RESET + Endere√ßo Novo
 		add $v0, $zero, $t0
 		addi $v1, $zero, 'd'
 		
 collide:	lui $t0, 0x1001 #RESET
-		add $t0, $t0, $v0 #PosiÁ„o Atual do NPC
+		add $t0, $t0, $v0 #Posi√ß√£o Atual do NPC
 		
-		lw $t2, -512($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(TOP/Superior Esquerda)
-		lw $t3, -508($t0) #Unidade Gr·fica de VerificaÁ„o de ColisÁ„o(TOP/Centro)
-		lw $t4, -504($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(TOP/Superior Direita)
+		lw $t2, -512($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(TOP/Superior Esquerda)
+		lw $t3, -508($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√ß√£o(TOP/Centro)
+		lw $t4, -504($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(TOP/Superior Direita)
 		addi $s3, $zero, 'w'
 		beq $v1, $s3 collide_
-		lw $t2, 1536($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(BOTTOM/Inferior Esquerda)
-		lw $t3, 1540($t0) #Unidade Gr·fica de VerificaÁ„o de ColisÁ„o(BOTTOM/Centro)
-		lw $t4, 1544($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(BOTTOM/Inferior Direita)
+		lw $t2, 1536($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(BOTTOM/Inferior Esquerda)
+		lw $t3, 1540($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√ß√£o(BOTTOM/Centro)
+		lw $t4, 1544($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(BOTTOM/Inferior Direita)
 		addi $s3, $zero, 's'
 		beq $v1, $s3 collide_
-		lw $t2, -4($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(LEFT/Superior Esquerda)
-		lw $t3, 508($t0) #Unidade Gr·fica de VerificaÁ„o de ColisÁ„o(LEFT/Centro)
-		lw $t4, 1020($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(LEFT/Inferior Esquerda)
+		lw $t2, -4($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(LEFT/Superior Esquerda)
+		lw $t3, 508($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√ß√£o(LEFT/Centro)
+		lw $t4, 1020($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(LEFT/Inferior Esquerda)
 		addi $s3, $zero, 'a'
 		beq $v1, $s3 collide_
-		lw $t2, 12($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(RIGHT/Superior Direita)
-		lw $t3, 524($t0) #Unidade Gr·fica de VerificaÁ„o de ColiÁ„o(RIGHT/Centro)
-		lw $t4, 1036($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(RIGHT/Inferior Direita)
+		lw $t2, 12($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(RIGHT/Superior Direita)
+		lw $t3, 524($t0) #Unidade Gr√°fica de Verifica√ß√£o de Coli√ß√£o(RIGHT/Centro)
+		lw $t4, 1036($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(RIGHT/Inferior Direita)
 
-collide_:	#Colis„o com Cen·rio
+collide_:	#Colis√£o com Cen√°rio
 		addi $t5, $zero, 0 #RESET
 		ori $t5, 0x0000ff #COR - AZUL
 		beq $t2, $t5, ScenCollide1
-		#Colis„o com Colet·veis
+		#Colis√£o com Colet√°veis
 		addi $t5, $zero, 0 #RESET
 		ori $t5, 0xf5f5f5 # COR - BRANCO ACINZENTADO(OFF-WHITE)
 		beq $t3, $t5 NPC_Collect
-		#Colis„o entre NPCs
+		#Colis√£o entre NPCs
 		addi $t5, $zero, 0 #RESET
 		ori $t5, 0xff0000 #COR - VERMELHA
 		beq $t2, $t5, NPC_Collect
@@ -1066,7 +1066,7 @@ collide_:	#Colis„o com Cen·rio
 		beq $t2, $t5, NPC_Collect
 		beq $t3, $t5, NPC_Collect
 		beq $t4, $t5, NPC_Collect
-		#Colis„o com Pacman
+		#Colis√£o com Pacman
 		addi $t5, $zero, 0 #RESET
 		ori $t5, 0xffff00 #COR - AMARELA
 		beq $t2, $t5, PacmanCollide
@@ -1074,7 +1074,7 @@ collide_:	#Colis„o com Cen·rio
 		beq $t4, $t5, PacmanCollide
 		
 		beq $s4, $zero movenpc_
-		#Movimento entre IntersecÁıes
+		#Movimento entre Intersec√ß√µes
 		bne $s6, $zero finalmove
 		addi $t5, $zero, 'w'
 		beq $v1, $t5 LeftRight
@@ -1090,8 +1090,8 @@ finalmove:	addi $s6, $zero, 0
 		
 ScenCollide1:	sw $v0, 0($sp) #Guardando o Valor do Registrador $v0 na Pilha
 		addi $sp, $sp, -4
-		addi $v0, $zero, 42 #FunÁ„o de RandomizaÁ„o
-		addi $a1, $zero, 3 #Randomizar N˙meros de 0-2
+		addi $v0, $zero, 42 #Fun√ß√£o de Randomiza√ß√£o
+		addi $a1, $zero, 3 #Randomizar N√∫meros de 0-2
 		syscall
 		addi $sp, $sp, +4
 		lw $v0, 0($sp) #Recuperar o Valor do Registrador $v0 da Pilha
@@ -1144,9 +1144,9 @@ PacmanCollide:	or $v0, $zero, $t5 #NPC Tocou no Pacman = Cor do Pacman
 		jal gameover
 
 LeftRight:	addi $s6, $zero, 1
-		lw $t2, -4($t0) #Unidade Gr·fica de VerificaÁ„o (LEFT/Superior Esquerda)
-		lw $t3, 508($t0) #Unidade Gr·fica de VerificaÁ„o (LEFT/Centro)
-		lw $t4, 1020($t0) #Unidade Gr·fica de VerificaÁ„o (LEFT/Inferior Esquerda)
+		lw $t2, -4($t0) #Unidade Gr√°fica de Verifica√ß√£o (LEFT/Superior Esquerda)
+		lw $t3, 508($t0) #Unidade Gr√°fica de Verifica√ß√£o (LEFT/Centro)
+		lw $t4, 1020($t0) #Unidade Gr√°fica de Verifica√ß√£o (LEFT/Inferior Esquerda)
 		addi $t5, $zero, 0 #RESET
 		addi $s5, $zero, 0 #RESET
 		addi $t5, $zero, 0x000000 #COR - PRETA
@@ -1155,9 +1155,9 @@ LeftRight:	addi $s6, $zero, 1
 		bne $t4, $t5 RightV
 		addi $s5, $zero, 1 #Esquerda OK!
 
-RightV:		lw $t2, 12($t0) #Unidade Gr·fica de VerificaÁ„o (RIGHT/Superior Direita)
-		lw $t3, 524($t0) #Unidade Gr·fica de VerificaÁ„o (RIGHT/Centro)
-		lw $t4, 1036($t0) #Unidade Gr·fica de VerificaÁ„o (RIGHT/Inferior Direita)
+RightV:		lw $t2, 12($t0) #Unidade Gr√°fica de Verifica√ß√£o (RIGHT/Superior Direita)
+		lw $t3, 524($t0) #Unidade Gr√°fica de Verifica√ß√£o (RIGHT/Centro)
+		lw $t4, 1036($t0) #Unidade Gr√°fica de Verifica√ß√£o (RIGHT/Inferior Direita)
 		bne $t2, $t5 Choise
 		bne $t3, $t5 Choise
 		bne $t4, $t5 Choise
@@ -1165,8 +1165,8 @@ RightV:		lw $t2, 12($t0) #Unidade Gr·fica de VerificaÁ„o (RIGHT/Superior Direita
 		
 Choise:		sw $v0, 0($sp) #Guardando o Valor do Registrador $v0 na Pilha
 		addi $sp, $sp, -4
-		addi $v0, $zero, 42 #FunÁ„o de RandomizaÁ„o
-		addi $a1, $zero, 3 #Randomizar N˙meros de 0-2
+		addi $v0, $zero, 42 #Fun√ß√£o de Randomiza√ß√£o
+		addi $a1, $zero, 3 #Randomizar N√∫meros de 0-2
 		syscall
 		addi $sp, $sp, +4
 		lw $v0, 0($sp) #Recuperar o Valor do Registrador $v0 da Pilha
@@ -1193,9 +1193,9 @@ TwoChoise:	addi $s5, $zero, 0
 		j finalmove
 
 TopBottom:	addi $s6, $zero, 1
-		lw $t2, -512($t0) #Unidade Gr·fica de VerificaÁ„o (TOP/Superior Esquerda)
-		lw $t3, -508($t0) #Unidade Gr·fica de VerificaÁ„o (TOP/Centro)
-		lw $t4, -504($t0) #Unidade Gr·fica de VerificaÁ„o (TOP/Superior Direita)	
+		lw $t2, -512($t0) #Unidade Gr√°fica de Verifica√ß√£o (TOP/Superior Esquerda)
+		lw $t3, -508($t0) #Unidade Gr√°fica de Verifica√ß√£o (TOP/Centro)
+		lw $t4, -504($t0) #Unidade Gr√°fica de Verifica√ß√£o (TOP/Superior Direita)	
 		addi $t5, $zero, 0 #RESET
 		addi $s5, $zero, 0 #RESET
 		addi $t5, $zero, 0x000000 #COR - PRETA
@@ -1204,9 +1204,9 @@ TopBottom:	addi $s6, $zero, 1
 		bne $t4, $t5 BottomV
 		addi $s5, $zero, 1 #Cima/Superior OK!
 
-BottomV:	lw $t2, 1536($t0) #Unidade Gr·fica de VerificaÁ„o (BOTTOM/Inferior Esquerda)
-		lw $t3, 1540($t0) #Unidade Gr·fica de VerificaÁ„o (BOTTOM/Centro)
-		lw $t4, 1544($t0) #Unidade Gr·fica de VerificaÁ„o (BOTTOM/Inferior Direita)		
+BottomV:	lw $t2, 1536($t0) #Unidade Gr√°fica de Verifica√ß√£o (BOTTOM/Inferior Esquerda)
+		lw $t3, 1540($t0) #Unidade Gr√°fica de Verifica√ß√£o (BOTTOM/Centro)
+		lw $t4, 1544($t0) #Unidade Gr√°fica de Verifica√ß√£o (BOTTOM/Inferior Direita)		
 		bne $t2, $t5 Choise2
 		bne $t3, $t5 Choise2
 		bne $t4, $t5 Choise2
@@ -1214,8 +1214,8 @@ BottomV:	lw $t2, 1536($t0) #Unidade Gr·fica de VerificaÁ„o (BOTTOM/Inferior Esqu
 		
 Choise2:	sw $v0, 0($sp) #Guardando o Valor do Registrador $v0 na Pilha
 		addi $sp, $sp, -4
-		addi $v0, $zero, 42 #FunÁ„o de RandomizaÁ„o
-		addi $a1, $zero, 2 #Randomizar N˙meros de 0-1
+		addi $v0, $zero, 42 #Fun√ß√£o de Randomiza√ß√£o
+		addi $a1, $zero, 2 #Randomizar N√∫meros de 0-1
 		syscall
 		addi $sp, $sp, +4
 		lw $v0, 0($sp) #Recuperar o Valor do Registrador $v0 da Pilha
@@ -1254,7 +1254,7 @@ RIGHT:	addi $v1, $zero, 'd'
 	j collide
 		
 endmove:	addi $sp, $sp, +20
-		lw $ra, 0($sp) #Carregar EndereÁo de Volta
+		lw $ra, 0($sp) #Carregar Endere√ßo de Volta
 		lw $s3, -4($sp) #Carregar Valor do Registrador Usado($s3)
 		lw $s4, -8($sp) #Carregar Valor do Registrador Usado($s4)
 		sw $s5, -12($sp) #Carregar Valor do Registrador Usado($s5)
@@ -1262,34 +1262,34 @@ endmove:	addi $sp, $sp, +20
 		jr $ra
 
 #--------------------------------------------------------------------
-# FunÁ„o - Mover o PACMAN
+# Fun√ß√£o - Mover o PACMAN
 # Entradas: $a2, $a3
 # Saidas: $v0, $v1
 # Registradores Sujos: $sp, $t1, $t2, $t3, $t4, $t5, $t6, $s3, $s4, $s5, 
 # $s6
-# RÙtulos: movepacman - _, w - _, s - _, a - _, d - _, 
+# R√¥tulos: movepacman - _, w - _, s - _, a - _, d - _, 
 # collidepacman - _, Collect - _, NPCs, ScenCollide2, 
 # NPCsCollide, endmove_
 
 movepacman:	#Guardando na Memoria para Utilizar
-		sw $ra, 0($sp) #EndereÁo de Volta
+		sw $ra, 0($sp) #Endere√ßo de Volta
 		sw $s3, -4($sp) #Guardar Valor do Registrador $s3
 		sw $s4, -8($sp) #Guardar Valor do Registrador $s4
 		sw $s5, -12($sp) #Guardar Valor do Registrador $s5
 		sw $s6, -16($sp) #Guardar Valor do Registrador $s6
 		addi $sp, $sp, -20
 		add $v0, $zero, $a2
-		addi $v1, $zero, 0 #Nenhum Colet·vel Coletado
+		addi $v1, $zero, 0 #Nenhum Colet√°vel Coletado
 		addi $s4, $zero, 0 #RESET
 		add $s5, $zero, $a3
 		addi $s6, $zero, 0 #RESET
 		j collidepacman
 
-movepacman_:	#Guarda EndereÁo de PosiÁ„o do PACMAN
-		addi $s4, $zero, 1 #Passou pela Primeira VerificaÁ„o de Colis„o
+movepacman_:	#Guarda Endere√ßo de Posi√ß√£o do PACMAN
+		addi $s4, $zero, 1 #Passou pela Primeira Verifica√ß√£o de Colis√£o
 		lui $t0, 0x1001 #RESET
-		add $t0, $t0, $a2 #PosiÁ„o do PACMAN
-		#VerificaÁ„o da DireÁ„o de Movimento do PACMAN
+		add $t0, $t0, $a2 #Posi√ß√£o do PACMAN
+		#Verifica√ß√£o da Dire√ß√£o de Movimento do PACMAN
 		addi $s3, $zero, 'w'
 		beq $a3, $s3 w
 		addi $s3, $zero, 's'
@@ -1300,7 +1300,7 @@ movepacman_:	#Guarda EndereÁo de PosiÁ„o do PACMAN
 		beq $a3, $s3 d
 		j endmove_
 		
-w:		#MovimentaÁ„o para Cima
+w:		#Movimenta√ß√£o para Cima
 		addi $t1, $zero, 0 #RESET
 		ori $t1, 0x000000 #COR - PRETA
 		sw $t1, 4($t0) #Mudar a Boca do Pacman
@@ -1315,13 +1315,13 @@ w:		#MovimentaÁ„o para Cima
 		addi $t3, $zero, 3
 		jal movetime2
 		
-w_:		lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG) 
-		addi $t0, $t0, -512 #PosiÁ„o de Movimento da UG
-		sw $t1, 0($t0) #Mover a Unidade Gr·fica
-		addi $t0, $t0, 516 #PrÛximo Salvamento da UG
+w_:		lw $t1, 0($t0) #Salvar Unidade Gr√°fica(UG) 
+		addi $t0, $t0, -512 #Posi√ß√£o de Movimento da UG
+		sw $t1, 0($t0) #Mover a Unidade Gr√°fica
+		addi $t0, $t0, 516 #Pr√≥ximo Salvamento da UG
 		addi $t2, $t2, -1
 		bne $t2, $zero w_
-		addi $t0, $t0, 500 #PrÛxima Linha de MovimentaÁ„o
+		addi $t0, $t0, 500 #Pr√≥xima Linha de Movimenta√ß√£o
 		addi $t2, $zero, 3
 		addi $t3, $t3, -1
 		bne $t3, $zero, w_
@@ -1332,12 +1332,12 @@ w_:		lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG)
 		sw $t1, 4($t0)
 		sw $t1, 8($t0)
 		addi $t1, $zero, 0 #RESET
-		addi $t0, $t0, -1536 #Voltar para a UG de ReferÍncia Padr„o
-		addi $t0, $t0, -268500992 #RESET + EndereÁo Novo
+		addi $t0, $t0, -1536 #Voltar para a UG de Refer√™ncia Padr√£o
+		addi $t0, $t0, -268500992 #RESET + Endere√ßo Novo
 		add $v0, $zero, $t0
 		j collidepacman
 
-s:		#MovimentaÁ„o para Baixo
+s:		#Movimenta√ß√£o para Baixo
 		addi $t1, $zero, 0 #RESET
 		ori $t1, 0x000000 #COR - PRETA
 		sw $t1, 1028($t0) #Mudar a Boca do Pacman
@@ -1348,20 +1348,20 @@ s:		#MovimentaÁ„o para Baixo
 		sw $t1, 4($t0) #Apagar a Boca no Bottom
 		bne $s6, $zero endmove_
 				
-		addi $t0, $t0, 1024 #Inverter Unidade Gr·fica de ReferÍncia
-		#Unidade Gr·fica de ReferÍncia Padr„o(Canto Superior Esquerdo)
-		#Unidade Gr·fica de ReferÍncia Invertida(Canto Inferior Esquerdo) 
+		addi $t0, $t0, 1024 #Inverter Unidade Gr√°fica de Refer√™ncia
+		#Unidade Gr√°fica de Refer√™ncia Padr√£o(Canto Superior Esquerdo)
+		#Unidade Gr√°fica de Refer√™ncia Invertida(Canto Inferior Esquerdo) 
 		addi $t2, $zero, 3
 		addi $t3, $zero, 3
 		jal movetime2
 		
-s_:		lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG) 
-		addi $t0, $t0, 512 #PosiÁ„o de Movimento da UG
-		sw $t1, 0($t0) #Mover a Unidade Gr·fica
-		addi $t0, $t0, -508 #PrÛximo Salvamento da UG
+s_:		lw $t1, 0($t0) #Salvar Unidade Gr√°fica(UG) 
+		addi $t0, $t0, 512 #Posi√ß√£o de Movimento da UG
+		sw $t1, 0($t0) #Mover a Unidade Gr√°fica
+		addi $t0, $t0, -508 #Pr√≥ximo Salvamento da UG
 		addi $t2, $t2, -1
 		bne $t2, $zero s_
-		addi $t0, $t0, -524 #PrÛxima Linha de MovimentaÁ„o
+		addi $t0, $t0, -524 #Pr√≥xima Linha de Movimenta√ß√£o
 		addi $t2, $zero, 3
 		addi $t3, $t3, -1
 		bne $t3, $zero, s_
@@ -1372,12 +1372,12 @@ s_:		lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG)
 		sw $t1, 4($t0)
 		sw $t1, 8($t0)
 		addi $t1, $zero, 0 #RESET
-		addi $t0, $t0, 512 #Voltar para a UG de ReferÍncia Padr„o
-		addi $t0, $t0, -268500992 #RESET + EndereÁo Novo
+		addi $t0, $t0, 512 #Voltar para a UG de Refer√™ncia Padr√£o
+		addi $t0, $t0, -268500992 #RESET + Endere√ßo Novo
 		add $v0, $zero, $t0
 		j collidepacman
 
-a:		#MovimentaÁ„o para Esquerda
+a:		#Movimenta√ß√£o para Esquerda
 		addi $t1, $zero, 0 #RESET
 		ori $t1, 0x000000 #COR - PRETA
 		sw $t1, 512($t0) #Mudar a Boca do Pacman
@@ -1392,13 +1392,13 @@ a:		#MovimentaÁ„o para Esquerda
 		addi $t3, $zero, 3
 		jal movetime2
 
-a_:		lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG) 
-		addi $t0, $t0, -4 #PosiÁ„o de Movimento da UG
-		sw $t1, 0($t0) #Mover a Unidade Gr·fica
-		addi $t0, $t0, 8 #PrÛximo Salvamento da UG
+a_:		lw $t1, 0($t0) #Salvar Unidade Gr√°fica(UG) 
+		addi $t0, $t0, -4 #Posi√ß√£o de Movimento da UG
+		sw $t1, 0($t0) #Mover a Unidade Gr√°fica
+		addi $t0, $t0, 8 #Pr√≥ximo Salvamento da UG
 		addi $t2, $t2, -1
 		bne $t2, $zero, a_
-		addi $t0, $t0, 500 #PrÛxima Linha de MovimentaÁ„o
+		addi $t0, $t0, 500 #Pr√≥xima Linha de Movimenta√ß√£o
 		addi $t2, $zero, 3
 		addi $t3, $t3, -1
 		bne $t3, $zero a_
@@ -1409,12 +1409,12 @@ a_:		lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG)
 		sw $t1, 512($t0)
 		sw $t1, 1024($t0)
 		addi $t1, $zero, 0 #RESET
-		addi $t0, $t0, -12 #Voltar para a UG de ReferÍncia Padr„o
-		addi $t0, $t0, -268500992 #RESET + EndereÁo Novo
+		addi $t0, $t0, -12 #Voltar para a UG de Refer√™ncia Padr√£o
+		addi $t0, $t0, -268500992 #RESET + Endere√ßo Novo
 		add $v0, $zero, $t0
 		j collidepacman
 
-d:		#MovimentaÁ„o para Direita
+d:		#Movimenta√ß√£o para Direita
 		addi $t1, $zero, 0 #RESET
 		ori $t1, 0x000000 #COR - PRETA
 		sw $t1, 520($t0) #Mudar a Boca do Pacman
@@ -1425,20 +1425,20 @@ d:		#MovimentaÁ„o para Direita
 		sw $t1, 1028($t0) #Apagar a Boca no Bottom
 		bne $s6, $zero endmove_
 		
-		addi $t0, $t0, 8 #Inverter Unidade Gr·fica de ReferÍncia
-		#Unidade Gr·fica de ReferÍncia Padr„o(Canto Superior Esquerdo)
-		#Unidade Gr·fica de ReferÍncia Invertida(Canto Superior Direito)
+		addi $t0, $t0, 8 #Inverter Unidade Gr√°fica de Refer√™ncia
+		#Unidade Gr√°fica de Refer√™ncia Padr√£o(Canto Superior Esquerdo)
+		#Unidade Gr√°fica de Refer√™ncia Invertida(Canto Superior Direito)
 		addi $t2, $zero, 3
 		addi $t3, $zero, 3
 		jal movetime2
 		
-d_:		lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG) 
-		addi $t0, $t0, 4 #PosiÁ„o de Movimento da UG
-		sw $t1, 0($t0) #Mover a Unidade Gr·fica
-		addi $t0, $t0, -8 #PrÛximo Salvamento da UG
+d_:		lw $t1, 0($t0) #Salvar Unidade Gr√°fica(UG) 
+		addi $t0, $t0, 4 #Posi√ß√£o de Movimento da UG
+		sw $t1, 0($t0) #Mover a Unidade Gr√°fica
+		addi $t0, $t0, -8 #Pr√≥ximo Salvamento da UG
 		addi $t2, $t2, -1
 		bne $t2, $zero d_
-		addi $t0, $t0, 524 #PrÛxima Linha de MovimentaÁ„o
+		addi $t0, $t0, 524 #Pr√≥xima Linha de Movimenta√ß√£o
 		addi $t2, $zero, 3
 		addi $t3, $t3, -1
 		bne $t3, $zero d_
@@ -1449,47 +1449,47 @@ d_:		lw $t1, 0($t0) #Salvar Unidade Gr·fica(UG)
 		sw $t1, 512($t0)
 		sw $t1, 1024($t0)
 		addi $t1, $zero, 0 #RESET
-		addi $t0, $t0, 4 #Voltar para a UG de ReferÍncia Padr„o
-		addi $t0, $t0, -268500992 #RESET + EndereÁo Novo
+		addi $t0, $t0, 4 #Voltar para a UG de Refer√™ncia Padr√£o
+		addi $t0, $t0, -268500992 #RESET + Endere√ßo Novo
 		add $v0, $zero, $t0
 
 collidepacman:	lui $t0, 0x1001 #RESET
-		add $t0, $t0, $v0 #PosiÁ„o Atual do Pacman
+		add $t0, $t0, $v0 #Posi√ß√£o Atual do Pacman
 		
-		lw $t2, -512($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(TOP/Superior Esquerda)
-		lw $t3, -508($t0) #Unidade Gr·fica de VerificaÁ„o de ColisÁ„o(TOP/Centro)
-		addi $t6, $t0, -508 #PosiÁ„o de VerificaÁ„o de Coletaveis
-		lw $t4, -504($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(TOP/Superior Direita)
+		lw $t2, -512($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(TOP/Superior Esquerda)
+		lw $t3, -508($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√ß√£o(TOP/Centro)
+		addi $t6, $t0, -508 #Posi√ß√£o de Verifica√ß√£o de Coletaveis
+		lw $t4, -504($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(TOP/Superior Direita)
 		addi $s3, $zero, 'w'
 		beq $s5, $s3 collidepacman_
-		lw $t2, 1536($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(BOTTOM/Inferior Esquerda)
-		lw $t3, 1540($t0) #Unidade Gr·fica de VerificaÁ„o de ColisÁ„o(BOTTOM/Centro)
-		addi $t6, $t0, 1540 #PosiÁ„o de VerificaÁ„o de Coletaveis
-		lw $t4, 1544($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(BOTTOM/Inferior Direita)
+		lw $t2, 1536($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(BOTTOM/Inferior Esquerda)
+		lw $t3, 1540($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√ß√£o(BOTTOM/Centro)
+		addi $t6, $t0, 1540 #Posi√ß√£o de Verifica√ß√£o de Coletaveis
+		lw $t4, 1544($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(BOTTOM/Inferior Direita)
 		addi $s3, $zero, 's'
 		beq $s5, $s3 collidepacman_
-		lw $t2, -4($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(LEFT/Superior Esquerda)
-		lw $t3, 508($t0) #Unidade Gr·fica de VerificaÁ„o de ColisÁ„o(LEFT/Centro)
-		addi $t6, $t0, 508 #PosiÁ„o de VerificaÁ„o de Coletaveis
-		lw $t4, 1020($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(LEFT/Inferior Esquerda)
+		lw $t2, -4($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(LEFT/Superior Esquerda)
+		lw $t3, 508($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√ß√£o(LEFT/Centro)
+		addi $t6, $t0, 508 #Posi√ß√£o de Verifica√ß√£o de Coletaveis
+		lw $t4, 1020($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(LEFT/Inferior Esquerda)
 		addi $s3, $zero, 'a'
 		beq $s5, $s3 collidepacman_
-		lw $t2, 12($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(RIGHT/Superior Direita)
-		lw $t3, 524($t0) #Unidade Gr·fica de VerificaÁ„o de ColiÁ„o(RIGHT/Centro)
-		addi $t6, $t0, 524 #PosiÁ„o de VerificaÁ„o de Coletaveis
-		lw $t4, 1036($t0) #Unidade Gr·fica de VerificaÁ„o de Colis„o(RIGHT/Inferior Direita)	
+		lw $t2, 12($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(RIGHT/Superior Direita)
+		lw $t3, 524($t0) #Unidade Gr√°fica de Verifica√ß√£o de Coli√ß√£o(RIGHT/Centro)
+		addi $t6, $t0, 524 #Posi√ß√£o de Verifica√ß√£o de Coletaveis
+		lw $t4, 1036($t0) #Unidade Gr√°fica de Verifica√ß√£o de Colis√£o(RIGHT/Inferior Direita)	
 
-collidepacman_:	#Colis„o com Cen·rio
+collidepacman_:	#Colis√£o com Cen√°rio
 		addi $t5, $zero, 0 #RESET
 		ori $t5, 0x0000ff #COR - AZUL
 		beq $t2, $t5, ScenCollide2
 		beq $t3, $t5, ScenCollide2
 		beq $t4, $t5, ScenCollide2
-		#Colis„o com Colet·veis
+		#Colis√£o com Colet√°veis
 Collect:	addi $t5, $zero, 0 #RESET
 		ori $t5, 0xf5f5f5 # COR - BRANCO ACINZENTADO(OFF-WHITE)
 		beq $t3, $t5 Collect_
-		#Colis„o entre NPCs
+		#Colis√£o entre NPCs
 NPCs:		addi $t5, $zero, 0 #RESET
 		ori $t5, 0xff0000 #COR - VERMELHA
 		beq $t2, $t5, NPCsCollide
@@ -1518,17 +1518,17 @@ ScenCollide2:	bne $s4, $zero endmove_
 		addi $s6, $zero, 1
 		j Collect
 																													
-Collect_:	addi $v1, $zero, 1 #Colet·vel Coletado
+Collect_:	addi $v1, $zero, 1 #Colet√°vel Coletado
 		addi $t1, $zero, 0 #RESET
 		ori $t1, 0x000000 #COR - PRETA
-		sw $t1, 0($t6) #Retirar Colet·vel do Cen·rio
+		sw $t1, 0($t6) #Retirar Colet√°vel do Cen√°rio
 		j NPCs
 		
 NPCsCollide:	or $v0, $zero, $t5 #Cor do NPC que o Pacman Colidiu
 		jal gameover
 
 endmove_:	addi $sp, $sp, +20
-		lw $ra, 0($sp) #Carregar EndereÁo de Volta
+		lw $ra, 0($sp) #Carregar Endere√ßo de Volta
 		lw $s3, -4($sp) #Carregar Valor do Registrador Usado($s3)
 		lw $s4, -8($sp) #Carregar Valor do Registrador Usado($s4)
 		lw $s5, -12($sp) #Carregar Valor do Registrador Usado($s5)
@@ -1536,18 +1536,18 @@ endmove_:	addi $sp, $sp, +20
 		jr $ra
 
 #--------------------------------------------------------------------
-# FunÁ„o Clear
+# Fun√ß√£o Clear
 # Entradas: ---
 # Saidas: ---
 # Registradores Sujos: $sp, $t0, $t1, $t2, $t3
-# RÙtulos: clear, clear_, back
+# R√¥tulos: clear, clear_, back
 
-clear:		sw $ra, 0($sp) #Guarda o endereÁo de volta da FunÁ„o
+clear:		sw $ra, 0($sp) #Guarda o endere√ßo de volta da Fun√ß√£o
 		addi $sp, $sp, -4
 		lui $t0, 0x1001 #RESET
 		addi $t1, $zero, 0 #RESET
 		ori $t1, 0x000000 #COR - PRETA
-		addi $t2, $zero, 513 #Quantidade de Unidades Gr·ficas da Linha
+		addi $t2, $zero, 513 #Quantidade de Unidades Gr√°ficas da Linha
 		addi $t3, $zero, 13 #Quantidade de Linhas
 		
 clear_:		jal time
@@ -1561,16 +1561,16 @@ clear_:		jal time
 		addi $t3, $t3, -1
 		bne $t3, $zero, clear_
 		
-back:		addi $sp, $sp, +4 #Pega o endereÁo de volta da FunÁ„o
+back:		addi $sp, $sp, +4 #Pega o endere√ßo de volta da Fun√ß√£o
 		lw $ra, 0($sp)
 		jr $ra
 
 #--------------------------------------------------------------------
-# FunÁ„o Auxiliar de Tempo de Movimento dos NPCs
+# Fun√ß√£o Auxiliar de Tempo de Movimento dos NPCs
 # Entradas: ---
 # Saidas: ---
 # Registradores Sujos: $t1
-# RÙtulos: movetime1, temp1
+# R√¥tulos: movetime1, temp1
 
 movetime1:	addi $t1, $zero, 2500
 temp1:		addi $t1, $t1, -1
@@ -1578,11 +1578,11 @@ temp1:		addi $t1, $t1, -1
 		jr $ra
 		
 #--------------------------------------------------------------------
-# FunÁ„o Auxiliar de Tempo de Movimento do PACMAN
+# Fun√ß√£o Auxiliar de Tempo de Movimento do PACMAN
 # Entradas: ---
 # Saidas: ---
 # Registradores Sujos: $t1
-# RÙtulos: movetime2, temp2
+# R√¥tulos: movetime2, temp2
 
 movetime2:	addi $t1, $zero, 3500
 temp2:		addi $t1, $t1, -1
@@ -1590,11 +1590,11 @@ temp2:		addi $t1, $t1, -1
 		jr $ra
 		
 #--------------------------------------------------------------------
-# FunÁ„o Auxiliar de Tempo da FunÁ„o Clear
+# Fun√ß√£o Auxiliar de Tempo da Fun√ß√£o Clear
 # Entradas: ---
 # Saidas: ---
 # Registradores Sujos: $t1
-# RÙtulos: time, temp_
+# R√¥tulos: time, temp_
 
 time:		addi $t1, $zero, 100
 temp_:		addi $t1, $t1, -1
@@ -1602,19 +1602,19 @@ temp_:		addi $t1, $t1, -1
 		jr $ra
 
 #--------------------------------------------------------------------
-# FunÁ„o - Tela de Fim de Jogo
+# Fun√ß√£o - Tela de Fim de Jogo
 # Entradas: $v0
 # Saidas: ---
 # Registradores Sujos: $t1, $t2, $t3, $t4, $t5
-# RÙtulos: gameover - _, G - _ - __ - ___, A - _, M - _, E - _, O - _, 
+# R√¥tulos: gameover - _, G - _ - __ - ___, A - _, M - _, E - _, O - _, 
 # V - _, R - _ - __
 
 gameover:	jal clear
 		lui $t0, 0x1001 #RESET
-		addi $t0, $t0, 13952 #PosiÁ„o Inicial da FormaÁ„o do Nome "END GAME"
+		addi $t0, $t0, 13952 #Posi√ß√£o Inicial da Forma√ß√£o do Nome "END GAME"
 		addi $t1, $zero, 0 #RESET
-		or $t1, $t1, $v0 #COR - Colis„o com NPC
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+		or $t1, $t1, $v0 #COR - Colis√£o com NPC
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantiadade de Linhas Verticais
 		addi $t5, $zero, 0 #RESET
 
@@ -1627,7 +1627,7 @@ G:		sw $t1, 0($t0)
 		addi $t2, $zero, 12
 		addi $t3, $t3, -1
 		bne $t3, $zero G
-		addi $t2, $zero, 4 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 4 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Horizontais
 		addi $t4, $zero, 2 #Quantidade de Bloco de Linhas Horizontais
 
@@ -1645,7 +1645,7 @@ G_:		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero G_
 		addi $t0, $t0, -5624
-		addi $t2, $zero, 2 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 2 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 5 #Quantidade de Linhas Horizontais
 	
 G__:		sw $t1, 0($t0)
@@ -1657,14 +1657,14 @@ G__:		sw $t1, 0($t0)
 		addi $t3, $t3, -1
 		bne $t3, $zero G__
 		addi $t0, $t0, 508
-		addi $t2, $zero, 2 #Quantidade de Unidades Gr·ficas/Linha Vertical
+		addi $t2, $zero, 2 #Quantidade de Unidades Gr√°ficas/Linha Vertical
 	
 G___:		sw $t1, 0($t0)
 		addi $t0, $t0, 512
 		addi $t2, $t2, -1
 		bne $t2, $zero, G___
-		addi $t0, $t0, -3564 #PrÛxima Letra
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+		addi $t0, $t0, -3564 #Pr√≥xima Letra
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Verticais
 
@@ -1683,7 +1683,7 @@ A:		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero A
 		addi $t0, $t0, -24
-		addi $t2, $zero, 2 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 2 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Horizontais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Horizontais
 	
@@ -1699,8 +1699,8 @@ A_:		sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero A_
-		addi $t0, $t0, -5096 #PrÛxima Letra
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+		addi $t0, $t0, -5096 #Pr√≥xima Letra
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Verticais
 
@@ -1719,7 +1719,7 @@ M:		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero M
 		addi $t0, $t0, 992
-		addi $t2, $zero, 3 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 3 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 3 #Quantidade de Linhas Verticais
 
 M_: 		sw $t1, 0($t0)
@@ -1735,8 +1735,8 @@ M_: 		sw $t1, 0($t0)
 		addi $t2, $zero, 3 
 		addi $t4, $zero, 1
 		beq $t3, $t4 M_
-		addi $t0, $t0, 16 #PrÛxima Letra
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas  
+		addi $t0, $t0, 16 #Pr√≥xima Letra
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas  
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 
 # LETRA E	
@@ -1748,7 +1748,7 @@ E:		sw $t1, 0($t0)
 		addi $t2, $zero, 12
 		addi $t3, $t3, -1
 		bne $t3, $zero E
-		addi $t2, $zero, 4 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 4 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Horizontais
 		addi $t4, $zero, 3 #Quantidade de Blocos de Linhas Horizontais
 	
@@ -1766,8 +1766,8 @@ E_:		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero E_
 		bne $t5, $zero endE
-		addi $t0, $t0, -7644 #PrÛxima Letra
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+		addi $t0, $t0, -7644 #Pr√≥xima Letra
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Verticais
 
@@ -1786,7 +1786,7 @@ O:		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero O
 		addi $t0, $t0, 5096
-		addi $t2, $zero, 2 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 2 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Horizontais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Horizontais
 
@@ -1803,8 +1803,8 @@ O_:		sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero O_
-		addi $t0, $t0, 5144 #PrÛxima Letra
-		addi $t2, $zero, 10 #Quantidade de Unidades Gr·ficas
+		addi $t0, $t0, 5144 #Pr√≥xima Letra
+		addi $t2, $zero, 10 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Verticais
 
@@ -1823,7 +1823,7 @@ V:		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero V
 		addi $t0, $t0, 5092
-		addi $t2, $zero, 4 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 4 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Horizontais
 
 V_:		sw $t1, 0($t0)
@@ -1834,14 +1834,14 @@ V_:		sw $t1, 0($t0)
 		addi $t2, $zero, 2
 		addi $t3, $t3, -1
 		bne $t3, $zero V_
-		addi $t0, $t0, -6116 #PrÛxima Letra
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+		addi $t0, $t0, -6116 #Pr√≥xima Letra
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
-		addi $t5, $zero, 1 #IdentificaÁ„o do Segundo E
+		addi $t5, $zero, 1 #Identifica√ß√£o do Segundo E
 		j E
 
-endE:		addi $t0, $t0, -7656 #PrÛxima Letra
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+endE:		addi $t0, $t0, -7656 #Pr√≥xima Letra
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 
 # LETRA R		
@@ -1853,7 +1853,7 @@ R:		sw $t1, 0($t0)
 		addi $t2, $zero, 12
 		addi $t3, $t3, -1
 		bne $t3, $zero R
-		addi $t2, $zero, 2 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 2 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Horizontais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Horizontais		
 		
@@ -1871,10 +1871,10 @@ R_:		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero R_
 		addi $t0, $t0, -5112
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 3 #Quantidade de Linhas Verticais
-		addi $t4, $zero, -5628 #PosiÁ„o da PrÛxima Linha Vertical
-		addi $t5, $zero, 4 #Quantidade de Unidades Gr·ficas da PrÛxima Linha Vertical
+		addi $t4, $zero, -5628 #Posi√ß√£o da Pr√≥xima Linha Vertical
+		addi $t5, $zero, 4 #Quantidade de Unidades Gr√°ficas da Pr√≥xima Linha Vertical
 		
 R__:		sw $t1, 0($t0)
 		addi $t0, $t0, 512
@@ -1891,18 +1891,18 @@ gameover_:	addi $v0, $zero, 10 #END GAME!
 		syscall
 		
 #--------------------------------------------------------------------
-# FunÁ„o - Tela de VocÍ Venceu
+# Fun√ß√£o - Tela de Voc√™ Venceu
 # Entradas: ---
 # Saidas: ---
 # Registradores Sujos: $t1, $t2, $t3, $t4, $t5
-# RÙtulos: youwin - _, Y - _, O_U - _, U, W - _, I, N__ - ___
+# R√¥tulos: youwin - _, Y - _, O_U - _, U, W - _, I, N__ - ___
 
 youwin:		jal clear
 		lui $t0, 0x1001 #RESET
-		addi $t0, $t0, 13992 #PosiÁ„o Inicial da FormaÁ„o do Nome "END GAME"
+		addi $t0, $t0, 13992 #Posi√ß√£o Inicial da Forma√ß√£o do Nome "END GAME"
 		addi $t1, $zero, 0 #RESET
 		ori $t1, 0x00ff00 #COR - VERDE
-		addi $t2, $zero, 2 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 2 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 7 #Quantidade de Linhas Horizontais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Horizontais
 		addi $t5, $zero, 0 #RESET
@@ -1922,7 +1922,7 @@ Y:		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero Y
 		addi $t0, $t0, 2584
-		addi $t2, $zero, 7 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 7 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 
 Y_:		sw $t1, 0($t0)
@@ -1933,8 +1933,8 @@ Y_:		sw $t1, 0($t0)
 		addi $t2, $zero, 7
 		addi $t3, $t3, -1
 		bne $t3, $zero Y_
-		addi $t0, $t0, -2544 #PrÛxima Letra
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+		addi $t0, $t0, -2544 #Pr√≥xima Letra
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Verticais
 
@@ -1953,7 +1953,7 @@ O_U:		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero O_U
 		addi $t0, $t0, 5096
-		addi $t2, $zero, 2 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 2 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Horizontais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Horizontais
 
@@ -1971,15 +1971,15 @@ O_U_:		sw $t1, 0($t0)
 		addi $t3, $zero, 2
 		addi $t4, $t4, -1
 		bne $t4, $zero O_U_
-		addi $t0, $t0, 5144 #PrÛxima Letra
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+		addi $t0, $t0, 5144 #Pr√≥xima Letra
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Verticais
-		addi $t5, $zero, 1 #Indicador de ContruÁ„o da Letra U
+		addi $t5, $zero, 1 #Indicador de Contru√ß√£o da Letra U
 		j O_U
 
-U:		addi $t0, $t0, -6108 #PrÛxima Letra
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+U:		addi $t0, $t0, -6108 #Pr√≥xima Letra
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Verticais
 
@@ -1998,7 +1998,7 @@ W:		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero W
 		addi $t0, $t0, 4576
-		addi $t2, $zero, 3 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 3 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 3 #Quantidade de Linhas Verticais
 	
 W_:		sw $t1, 0($t0)
@@ -2014,8 +2014,8 @@ W_:		sw $t1, 0($t0)
 		addi $t2, $zero, 3
 		addi $t4, $zero, 1
 		beq $t3, $t4 W_
-		addi $t0, $t0, -5616 #PrÛxima Letra
-		addi $t2, $zero, 2 #Quantidade de Unidades Gr·ficas
+		addi $t0, $t0, -5616 #Pr√≥xima Letra
+		addi $t2, $zero, 2 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Horizontais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Horizontais
 
@@ -2033,8 +2033,8 @@ I:		sw $t1, 0($t0)
 		addi $t3, $zero, 8
 		addi $t4, $t4, -1
 		bne $t4, $zero I
-		addi $t0, $t0, -7152 #PrÛxima Letra
-		addi $t2, $zero, 12 #Quantidade de Unidades Gr·ficas
+		addi $t0, $t0, -7152 #Pr√≥xima Letra
+		addi $t2, $zero, 12 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 		addi $t4, $zero, 2 #Quantidade de Blocos de Linhas Verticais
 
@@ -2053,7 +2053,7 @@ N__: 		sw $t1, 0($t0)
 		addi $t4, $t4, -1
 		bne $t4, $zero N__
 		addi $t0, $t0, 1000
-		addi $t2, $zero, 4 #Quantidade de Unidades Gr·ficas
+		addi $t2, $zero, 4 #Quantidade de Unidades Gr√°ficas
 		addi $t3, $zero, 2 #Quantidade de Linhas Verticais
 	
 N___:		sw $t1, 0($t0)
